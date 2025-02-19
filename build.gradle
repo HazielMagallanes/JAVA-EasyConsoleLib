@@ -4,7 +4,7 @@ plugins {
     id 'signing'       // For GPG signing
 }
 
-group = 'ar.com.ghostix'
+group = 'ar.com.ghostix.lib'
 version = '1.0.0'
 description = 'A utility library for creating ASCII menus in Java console applications'
 

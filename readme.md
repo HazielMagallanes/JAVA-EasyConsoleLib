@@ -60,7 +60,7 @@ Include the following in your `pom.xml`:
 
 ```xml
 <dependency>
-    <groupId>ar.com.ghostix.lib.easyconsolelib</groupId>
+    <groupId>ar.com.ghostix.lib</groupId>
     <artifactId>easyconsolelib</artifactId>
     <version>1.0.0</version>
 </dependency>
@@ -72,7 +72,7 @@ Include the following in your `build.gradle`:
 
 ```gradle
 dependencies {
-    implementation 'ar.com.ghostix.lib.easyconsolelib:easyconsolelib:1.0.0'
+    implementation 'ar.com.ghostix.lib:easyconsolelib:1.0.0'
 }
 ```
 

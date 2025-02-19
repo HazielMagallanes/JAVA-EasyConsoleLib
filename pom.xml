@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <!-- Project Metadata -->
-    <groupId>ar.com.ghostix</groupId>
+    <groupId>ar.com.ghostix.lib</groupId>
     <artifactId>easyconsolelib</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
