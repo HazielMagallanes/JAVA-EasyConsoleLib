@@ -1,0 +1,86 @@
+plugins {
+    id 'java'
+    id 'maven-publish' // For publishing to Maven Central
+    id 'signing'       // For GPG signing
+}
+
+group = 'ar.com.ghostix'
+version = '1.0.0'
+description = 'A utility library for creating ASCII menus in Java console applications'
+
+java {
+    withJavadocJar() // Generates a Javadoc JAR
+    withSourcesJar() // Generates a source JAR
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17) // Minimum Java version
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+
+            // Metadata for Maven Central
+            pom {
+                name.set('EasyConsoleLib')
+                description.set(project.description)
+                url.set('https://github.com/GhostixGameDev/JAVA-EasyConsoleLib')
+
+                licenses {
+                    license {
+                        name.set('MIT License')
+                        url.set('https://opensource.org/licenses/MIT')
+                    }
+                }
+
+                developers {
+                    developer {
+                        id.set('ghostixgamedev')
+                        name.set('Haziel Magallanes')
+                        email.set('business@ghostix.com.ar')
+                    }
+                }
+
+                scm {
+                    connection.set('scm:git:git://github.com/GhostixGameDev/JAVA-EasyConsoleLib.git')
+                    developerConnection.set('scm:git:ssh://github.com/GhostixGameDev/JAVA-EasyConsoleLib.git')
+                    url.set('https://github.com/GhostixGameDev/JAVA-EasyConsoleLib')
+                }
+            }
+        }
+    }
+
+    repositories {
+        maven {
+            name = 'OSSRH'
+            url = uri('https://oss.sonatype.org/service/local/staging/deploy/maven2/')
+
+            credentials {
+                username = findProperty('ossrhUsername') ?: ''
+                password = findProperty('ossrhPassword') ?: ''
+            }
+        }
+    }
+}
+
+signing {
+    useInMemoryPgpKeys(findProperty('signingKey') ?: '', findProperty('signingPassword') ?: '')
+    sign publishing.publications.mavenJava
+}
+
+tasks.withType(Javadoc) {
+    options {
+        encoding = 'UTF-8'
+        charSet = 'UTF-8'
+        links 'https://docs.oracle.com/en/java/javase/17/docs/api/'
+    }
+}
+
+tasks.withType(JavaCompile) {
+    options.release = 17 // Ensures Java 17+ compatibility
+}
