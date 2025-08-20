@@ -54,28 +54,6 @@ For **IntelliJ IDEA**:
 3. Choose the downloaded JAR.
 4. Apply and save.
 
-### 3️⃣ Adding as a Maven Dependency
-
-Include the following in your `pom.xml`:
-
-```xml
-<dependency>
-    <groupId>ar.com.ghostix.lib</groupId>
-    <artifactId>easyconsolelib</artifactId>
-    <version>1.0.0</version>
-</dependency>
-```
-
-### 4️⃣ Adding as a Gradle Dependency
-
-Include the following in your `build.gradle`:
-
-```gradle
-dependencies {
-    implementation 'ar.com.ghostix.lib:easyconsolelib:1.0.0'
-}
-```
-
 ---
 
 ## Usage
@@ -340,4 +318,5 @@ public class Point {
 ## License
 
 📝 **This project is licensed under the MIT License. See the LICENSE file for details.** 📝
+
 
